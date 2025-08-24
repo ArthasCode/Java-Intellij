@@ -4,6 +4,7 @@ import APIs_minhas.LoggerProxy;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.logging.Level;
 
 public class RunTest3 {
     public static void main(String[] args) {
@@ -33,14 +34,14 @@ public class RunTest3 {
                 }
             }
                 if(passed == oldPassed)
-                    LoggerProxy.registrarLogSevere(String.format("Test %s failed: %s",
-                            m, exc), RunTest3.class.getName());
+                    LoggerProxy.registrarLog(String.format("Test %s failed: %s",
+                            m, exc), RunTest3.class, Level.SEVERE);
                 } catch (Exception _) {
                     System.out.println("Invalid Test: " + m);
                 }
             }
         }
-        LoggerProxy.registrarLogInfo(String.format("Passed: %d failed: %s",
-                passed, tests - passed), RunTest3.class.getName());
+        LoggerProxy.registrarLog(String.format("Passed: %d failed: %s",
+                passed, tests - passed), RunTest3.class, Level.INFO);
     }
 }

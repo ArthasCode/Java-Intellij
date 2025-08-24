@@ -13,19 +13,13 @@ public class LoggerProxy {
 
     private LoggerProxy(){}
 
-    public static void registrarLogInfo(String message, String className){
+    public static void registrarLog(Object obj, Class<?> clazz, Level level){
+        String message = (obj != null) ? obj.toString() : "null";
         try {
-            getLogger(className).info(message);
+            Logger logger = getLogger(clazz.getName());
+            logger.log(level, message);
         } catch (IOException e) {
-            throw new RuntimeException("Erro em gerir o arquivo", e.getCause());
-        }
-    }
-
-    public static void registrarLogSevere(String message, String className) {
-        try {
-            getLogger(className).severe(message);
-        }catch (IOException e){
-            throw new RuntimeException("Erro em gerir o arquivo", e.getCause());
+            throw new RuntimeException("Erro em gerir o arquivo" + e);
         }
     }
 

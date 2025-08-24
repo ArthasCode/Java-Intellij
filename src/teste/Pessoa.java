@@ -3,35 +3,58 @@ package teste;
 import java.util.logging.Logger;
 
 public class Pessoa {
-    private String name;
+    private String nome;
+    private int idade;
+    private double peso;
+    private double altura;
+    private char sexo;
+    private String cpf;
 
-    Pessoa(String name){
-        this.name = name;
+    public String getNome() {
+        return nome;
     }
 
-
-
-    public String getName() {
-        return name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getIdade() {
+        return idade;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "name='" + name + '\'' +
-                '}';
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
-}
 
-class Teste{
-    public static void main(String[] args) {
-        Pessoa pessoa = new Pessoa("Arthas");
+    public double getPeso() {
+        return peso;
+    }
 
-        Logger logger = Logger.getLogger(pessoa.getClass().getName());
-        logger.info(pessoa.toString());
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

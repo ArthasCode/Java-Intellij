@@ -3,6 +3,7 @@ import APIs_minhas.LoggerProxy;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 public enum BasicOperation implements Operation{
     PLUS("+"){
@@ -46,7 +47,7 @@ public enum BasicOperation implements Operation{
 
     public static <T extends Enum<T> & Operation> void test(Class<T> opEnum, double x, double y){
         for(Operation op : opEnum.getEnumConstants())
-            LoggerProxy.registrarLogInfo(String.format("%f %s %f = %f%n",
-                    x, op, y, op.apply(x, y)), opEnum.getName());
+            LoggerProxy.registrarLog(String.format("%f %s %f = %f%n",
+                    x, op, y, op.apply(x, y)), opEnum, Level.INFO);
     }
 }
